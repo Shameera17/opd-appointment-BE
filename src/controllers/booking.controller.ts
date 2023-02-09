@@ -15,7 +15,7 @@ const createBooking = async (req: Request, res: Response): Promise<void> => {
 
     const booking: Booking = {
       appointmentNo: appointmentCount,
-      patientName: data.name,
+      patientName: data.patientName,
       mobileNo: data.mobileNo,
       email: data.email,
       address: data.address,

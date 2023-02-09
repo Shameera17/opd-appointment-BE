@@ -1,6 +1,6 @@
 {
   "name": "back-end-app",
-  "version": "1.0.0",
+  "version": "1.01.0",
   "main": "src/server.ts",
   "author": "shameera carrim",
   "license": "MIT",

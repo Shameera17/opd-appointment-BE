@@ -26,5 +26,5 @@ Project structure
 
 1. save the file locally -> Clone the repository
 2. installation -> npm install or yarn install
-3. install js > ts transpiler -> tsc --init
+3. install ts > js transpiler -> tsc --init
 4. run the app -> npm run dev or yarn dev
