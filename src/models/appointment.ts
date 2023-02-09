@@ -23,6 +23,10 @@ const AppointmentSchema = new Schema<Appointment>(
       type: Number,
       required: false,
     },
+    date: {
+      type: Date,
+      required: false,
+    },
   },
   {
     timestamps: true,

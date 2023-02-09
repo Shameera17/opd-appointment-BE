@@ -1,6 +1,6 @@
 import { ObjectId } from "bson";
 
-export interface Appointment {
+export interface Appointment extends Document {
   title: string;
   startTime: string;
   endTime: string;

@@ -4,12 +4,13 @@ import _ from "lodash";
 import AppointmentSchema from "../models/appointment";
 import BookingSchema from "../models/booking";
 import { Booking } from "../types";
-
+import { sendEmail } from "../util/sendMail";
+const nodemailer = require("nodemailer");
 // create booking
 const createBooking = async (req: Request, res: Response): Promise<void> => {
   try {
     const data = await req.body;
-    const appointmentId = data?.id;
+    const appointmentId = data?.appointmentId;
     const appointmentCount = data?.count + 1;
 
     const booking: Booking = {
@@ -31,6 +32,11 @@ const createBooking = async (req: Request, res: Response): Promise<void> => {
       }),
     ])
       .then((data) => {
+        sendEmail(
+          booking.email,
+          `OPD services: Appointment No ${booking.appointmentNo}`,
+          `Hi, ${booking.patientName}, Appintement is created on ${booking.date}`
+        );
         res.status(200).json({ message: "Booking created!" });
       })
       .catch((error) => {

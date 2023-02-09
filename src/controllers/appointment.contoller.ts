@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import _ from "lodash";
 import AppointmentSchema from "../models/appointment";
-import { Appointment } from "../types";
 
 // create appointment
 const createAppointment = async (
@@ -11,7 +10,7 @@ const createAppointment = async (
   try {
     const data = await req.body;
 
-    const appointment: Appointment = {
+    const appointment = {
       title: data.title,
       startTime: data.startTime,
       endTime: data.endTime,
@@ -27,10 +26,15 @@ const createAppointment = async (
         res.status(200).json({ message: "Appointment created!" });
       })
       .catch((error) => {
-        res.status(400).json({ error: "Appointment creation failed!" });
+        console.log(error);
+        res
+          .status(400)
+          .json({ error: "Appointment creation failed! " + error });
       });
   } catch (error) {
-    res.status(400).json({ error: "Appointment creation failed!" });
+    console.log(error);
+
+    res.status(400).json({ error: "99 88 failed!" + error });
   }
 };
 
